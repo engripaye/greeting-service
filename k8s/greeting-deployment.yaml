@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: greeting-deployment
+  labels:
+    app: greeting-service
 spec:
   replicas: 2
   selector:
@@ -15,6 +17,5 @@ spec:
       containers:
         - name: greeting-container
           image: greeting-service:1.0
-          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8081
